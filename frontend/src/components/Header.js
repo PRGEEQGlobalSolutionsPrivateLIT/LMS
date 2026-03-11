@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Header.css";
+import logo from "../assets/PRGEEQ-Logo.png";
 
 function Header() {
 
@@ -17,7 +18,9 @@ function Header() {
   return (
     <header className="header">
 
-      <div className="logo">PRGeeQ</div>
+      <div className="logo">
+        <img src={logo} alt="PRGeeQ Logo" />
+      </div>
 
       {/* MOBILE MENU ICON */}
       <div
