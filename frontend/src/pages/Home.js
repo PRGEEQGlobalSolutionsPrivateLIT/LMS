@@ -3,6 +3,9 @@ import Header from "../components/Header";
 import heroImg from "../assets/heroLMS.jpg";
 import ldImg from "../assets/heroLMS.jpg";
 import { useState, useEffect } from "react";
+import heroLMS from "../assets/heroLMS.jpg";
+import Footer from '../components/Footer';
+
 
 import {
   FaGraduationCap,
@@ -272,6 +275,233 @@ function Home() {
 
       </section>
 
+      {/* FUTURE READY MODULES SECTION */}
+
+      <section className="modules-section">
+
+        <div className="modules-container">
+
+          <h2>
+            Future Ready <strong>neuroLxp Modules.</strong>
+          </h2>
+
+          <p>
+            Our advanced and adaptable modules within the neuroLxp platform are
+            designed to ensure organizations stay ahead in the rapidly evolving
+            landscape of learning and development.
+          </p>
+
+          <p>
+            These modules are meticulously crafted to meet the dynamic needs
+            of tomorrow's workforce, empowering businesses to cultivate a
+            culture of continuous learning and innovation.
+          </p>
+
+        </div>
+
+      </section>
+
+      {/* LEARNING MODULE CARDS */}
+
+<section className="learning-cards">
+
+  <div className="cards-container">
+
+    <div className="learning-card">
+
+      <div className="card-image">
+        <img src={require("../assets/heroLMS.jpg")} alt="Learning Journey"/>
+      </div>
+
+      <h3>Learning Journey</h3>
+
+      <p>
+        Embark on a personalized learning journey with our neuroLxp platform.
+        Discover your unique learning style through comprehensive analytics,
+        set personalized goals, and navigate through tailored learning paths
+        to achieve your objectives.
+      </p>
+
+      <button className="learn-btn">Learn More</button>
+
+    </div>
+
+
+    <div className="learning-card">
+
+      <div className="card-image">
+        <img src={require("../assets/heroLMS.jpg")} alt="Learning Augmentation"/>
+      </div>
+
+      <h3>Learning Augmentation</h3>
+
+      <p>
+        Experience an enhanced learning journey thru neuroLxp's custom modules.
+        Engage in gamified experiences, interactive activities, and collaborative
+        social learning opportunities with curated content and features designed
+        to augment your learning experience.
+      </p>
+
+      <button className="learn-btn">Learn More</button>
+
+    </div>
+
+
+    <div className="learning-card">
+
+      <div className="card-image">
+        <img src={require("../assets/heroLMS.jpg")} alt="Learning Ecosystem"/>
+      </div>
+
+      <h3>Learning Ecosystem</h3>
+
+      <p>
+        Dive into a comprehensive learning ecosystem with neuroLxp's custom
+        assessment and personalization modules. Explore skills and career
+        development opportunities, chart your career path, and undergo
+        assessments for continuous growth and development.
+      </p>
+
+      <button className="learn-btn">Learn More</button>
+
+    </div>
+
+  </div>
+
+</section>
+{/* ===== TRAINING CARDS SECTION ===== */}
+
+<section className="training-section">
+
+  <div className="training-container">
+
+    {/* Card 1 */}
+    <div className="training-card">
+      <img src={heroLMS} alt="Blended Learning" />
+
+      <h3>Blended Learning</h3>
+
+      <p>
+        Integrate the best of both worlds with neuroLxp's Blended Learning module.
+        Combine online and in-person learning to provide a flexible and
+        comprehensive learning experience.
+      </p>
+
+      <button className="learn-btn">Learn More</button>
+    </div>
+
+
+    {/* Card 2 */}
+    <div className="training-card">
+      <img src={heroLMS} alt="Onboarding" />
+
+      <h3>Onboarding & Induction</h3>
+
+      <p>
+        Ensure a smooth induction and transition for new hires. Streamline
+        the onboarding process and help new employees integrate seamlessly
+        into your organization.
+      </p>
+
+      <button className="learn-btn">Learn More</button>
+    </div>
+
+
+    {/* Card 3 */}
+    <div className="training-card">
+      <img src={heroLMS} alt="Standards Training" />
+
+      <h3>Standards Training</h3>
+
+      <p>
+        Maintain high standards with neuroLxp's Standards Training module.
+        Equip your team with the knowledge and skills necessary to meet
+        industry standards and regulations effectively.
+      </p>
+
+      <button className="learn-btn">Learn More</button>
+    </div>
+
+  </div>
+
+</section>
+
+{/* ===== GET IN TOUCH SECTION ===== */}
+
+<section className="contact-section">
+
+  <div className="contact-card">
+
+    <div className="contact-text">
+      <h2>Get in touch</h2>
+
+      <p>
+        If you need any help with our products or services, choose one of the
+        following ways to contact us.
+      </p>
+    </div>
+
+    <button className="contact-btn">
+      <span className="contact-icon">🎧</span>
+      Contact Us
+    </button>
+
+  </div>
+
+</section>
+
+<section className="download-section">
+
+  <h2>Ready to change your learning life?</h2>
+
+  <p>
+    Download neuroLxp today and take the first step to organize your learning,
+    achieve your personal goals and reflect on your career.
+  </p>
+
+  <div className="store-buttons">
+
+    <button className="store-btn">
+      <span className="icon"></span>
+      <div>
+        <small>Download on the</small>
+        <strong>App Store</strong>
+      </div>
+    </button>
+
+    <button className="store-btn">
+      <span className="icon">▶</span>
+      <div>
+        <small>Download on the</small>
+        <strong>Google Play</strong>
+      </div>
+    </button>
+
+  </div>
+
+</section>
+{/* 
+
+<div className="footer-social">
+
+  <a href="#">
+    <img src="/assets/instagram.png" alt="Instagram" />
+  </a>
+
+  <a href="#">
+    <img src="/assets/facebook.png" alt="Facebook" />
+  </a>
+
+  <a href="#">
+    <img src="/assets/youtube.png" alt="YouTube" />
+  </a>
+
+  <a href="#">
+    <img src="/assets/linkedin.png" alt="LinkedIn" />
+  </a>
+
+</div> */}
+<Footer />
     </div>
   );
 }
