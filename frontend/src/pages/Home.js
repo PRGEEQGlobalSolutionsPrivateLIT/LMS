@@ -480,27 +480,7 @@ function Home() {
   </div>
 
 </section>
-{/* 
 
-<div className="footer-social">
-
-  <a href="#">
-    <img src="/assets/instagram.png" alt="Instagram" />
-  </a>
-
-  <a href="#">
-    <img src="/assets/facebook.png" alt="Facebook" />
-  </a>
-
-  <a href="#">
-    <img src="/assets/youtube.png" alt="YouTube" />
-  </a>
-
-  <a href="#">
-    <img src="/assets/linkedin.png" alt="LinkedIn" />
-  </a>
-
-</div> */}
 <Footer />
     </div>
   );
