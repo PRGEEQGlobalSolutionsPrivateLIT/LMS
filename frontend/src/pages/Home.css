@@ -13,44 +13,56 @@ body {
 
 .home-page {
   min-height: 100vh;
-  background: #eeeef0;
+  /* background: #eeeef0; */
+  /* background: #e6e7ee; */
+  /* background-color: #e0e4e9; */
+   background-color: #fafbfe; 
   padding: 40px;
 }
 
 /* ================= HERO SLIDER ================= */
 
+/* The outer container (The "Frame") */
 .hero-slider {
   display: flex;
   justify-content: center;
-  margin-top: 40px;
-  margin-bottom: 80px;
+  align-items: center;
+  background-color: #f4f7f9; /* Light grey outer background */
+  border: 1px solid #e2e8f0; /* The thin outer border seen in image */
+  border-radius: 8px;
+  margin: 20px auto;
+  max-width: 1100px;
+  padding: 30px; /* Large padding for desktop "frame" look */
+  box-sizing: border-box;
 }
 
+/* The inner card */
 .hero-card {
   width: 100%;
-  max-width: 1100px;
-  border-radius: 16px;
+  background-color: #ffffff;
+  border-radius: 12px; /* Sharper edges */
   overflow: hidden;
-  box-shadow: 12px 12px 24px #c5c6cc, -12px -12px 24px #ffffff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .hero-bg {
-  height: 380px;
+  min-height: 400px;
   background-size: cover;
   background-position: center;
   position: relative;
+  display: flex;
 }
 
 .hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(255,255,255,0.75);
+  flex: 1;
+  background: rgba(255, 255, 255, 0.85); /* High opacity for readability */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 40px;
+  padding: 40px 20px;
 }
 
 .hero-overlay h2 {
@@ -58,6 +70,7 @@ body {
   font-weight: 600;
   color: #333;
   margin-bottom: 15px;
+  max-width: 800px;
 }
 
 .hero-overlay p {
@@ -65,202 +78,392 @@ body {
   font-size: 15px;
   line-height: 1.6;
   color: #444;
+  margin-bottom: 25px;
 }
 
+/* Dots: Hollow style to match image */
 .hero-dots {
-  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
 }
 
 .dot {
   height: 10px;
   width: 10px;
-  margin: 0 6px;
-  background: #bbb;
+  background: transparent;
+  border: 1px solid #333; /* Hollow circle */
   border-radius: 50%;
-  display: inline-block;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 .dot.active {
-  background: #333;
+  background: #2d3748; /* Solid dark circle */
 }
 
+/* ================= RESPONSIVE QUERIES ================= */
+
+/* Tablet View */
+@media (max-width: 992px) {
+  .hero-slider {
+    padding: 20px; /* Reduce outer frame size */
+    margin: 20px 15px;
+  }
+  
+  .hero-bg {
+    min-height: 350px;
+  }
+
+  .hero-overlay h2 {
+    font-size: 22px;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 600px) {
+  .hero-slider {
+    padding: 10px; /* Minimal frame for small screens */
+    border: none;  /* Remove outer border to save space */
+    background: transparent;
+  }
+
+  .hero-card {
+    border-radius: 8px; /* Sharper corners for mobile */
+  }
+
+  .hero-bg {
+    min-height: 450px; /* Taller to accommodate wrapping text */
+  }
+
+  .hero-overlay {
+    padding: 30px 15px;
+  }
+
+  .hero-overlay h2 {
+    font-size: 20px;
+    line-height: 1.3;
+  }
+
+  .hero-overlay p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
 /* ================= PLATFORM FEATURES GRID ================= */
 
-.platform-features{
-  padding:80px 20px;
-  max-width:1100px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:60px;
-  text-align:center;
+.platform-features {
+  padding: 80px 20px;
+  max-width: 1200px; /* Slightly wider for better breathing room */
+  margin: auto;
+  display: grid;
+  /* Standard 3-column layout for Desktop */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px; /* Adjusted gap for better balance */
+  text-align: center;
 }
 
-.feature-box{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
+.feature-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  transition: transform 0.3s ease;
 }
 
-.feature-box h3{
-  margin-top:15px;
-  font-size:18px;
-  font-weight:600;
-  color:#2d3e50;
+/* Subtle hover effect for Desktop */
+.feature-box:hover {
+  transform: translateY(-5px);
 }
 
-.feature-box p{
-  margin-top:10px;
-  font-size:14px;
-  line-height:1.6;
-  color:#555;
-  max-width:260px;
+.feature-box h3 {
+  margin-top: 15px;
+  font-size: 20px; /* Slightly larger for readability */
+  font-weight: 600;
+  color: #2d3e50;
+}
+
+.feature-box p {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555;
+  max-width: 280px;
 }
 
 /* ================= NEUMORPHIC ICON ================= */
 
 .icon-circle {
-  width: 80px;
-  height: 80px;
-  background: #e6e7ee;
+  width: 70px; /* Slightly smaller for a sleeker look */
+  height: 70px;
+  background: #f0f2f5; /* Matches most modern light backgrounds */
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 30px;
-  margin: 0 auto 20px auto;
+  font-size: 28px;
+  margin: 0 auto 10px auto;
 
+  /* Refined Neumorphic Shadow: Smoother and more subtle */
   box-shadow: 
-  9px 9px 16px #c5c6cc,
-  -9px -9px 16px #ffffff;
+    6px 6px 12px #d1d9e6, 
+    -6px -6px 12px #ffffff;
+}
+
+/* ================= RESPONSIVE ADJUSTMENTS ================= */
+
+/* Tablet View (iPad, Small Laptops) */
+@media (max-width: 992px) {
+  .platform-features {
+    grid-template-columns: repeat(2, 1fr); /* Switch to 2 columns */
+    gap: 30px;
+    padding: 60px 30px;
+  }
+}
+
+/* Mobile View (Phones) */
+@media (max-width: 600px) {
+  .platform-features {
+    grid-template-columns: 1fr; /* Stack everything in 1 column */
+    gap: 40px;
+    padding: 40px 20px;
+  }
+
+  .feature-box p {
+    max-width: 100%; /* Let text fill the width on mobile */
+  }
+
+  .icon-circle {
+    width: 65px;
+    height: 65px;
+    font-size: 24px;
+  }
+
+  .feature-box h3 {
+    font-size: 18px;
+  }
 }
 
 /* ================= ICON COLORS ================= */
 
-.platform-features .icon-circle{
-  color:#2f80ed;
-}
-
-.digital-section .icon-circle{
-  color:#e63946;
-}
-
-.ld-section .icon-circle{
-  color:#2a9d8f;
-}
+.platform-features .icon-circle { color: #2f80ed; }
+.digital-section .icon-circle { color: #e63946; }
+.ld-section .icon-circle { color: #2a9d8f; }
 
 /* ================= DIGITAL NARRATIVES SECTION ================= */
+/* ================= DIGITAL SECTION ================= */
 
-.digital-section{
-  padding:10px 20px;
-  text-align:center;
+.digital-section {
+  padding: 60px 20px; /* Increased top padding for better section breathing */
+  text-align: center;
 }
 
-.digital-header h2{
-  font-size:36px;
-  color:#2d3e50;
-  margin-bottom:15px;
+.digital-header h2 {
+  font-size: 32px; /* Slightly adjusted for modern balance */
+  font-weight: 700;
+  color: #2d3e50;
+  margin-bottom: 15px;
 }
 
-.digital-header p{
-  max-width:700px;
-  margin:auto;
-  line-height:1.7;
-  color:#555;
-  font-size:15px;
+.digital-header p {
+  max-width: 750px;
+  margin: 0 auto 40px auto;
+  line-height: 1.7;
+  color: #666;
+  font-size: 16px;
 }
 
-.digital-card{
-  margin-top:50px;
-  padding:50px 40px;
-  background:#e6e7ee;
-  border-radius:12px;
-  max-width:1100px;
-  margin-left:auto;
-  margin-right:auto;
+/* The Large Container Card */
+.digital-card {
+  padding: 50px 30px;
+  background: #f0f2f5; /* Slightly lighter for a cleaner look */
+  border-radius: 12px;
+  max-width: 1100px;
+  margin: 0 auto;
 
-  box-shadow:
-  8px 8px 18px #c5c6cc,
-  -8px -8px 18px #ffffff;
+  /* Refined Neumorphic Shadow - sharper and more subtle */
+  box-shadow: 
+    10px 10px 20px #d1d9e6, 
+    -10px -10px 20px #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.digital-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
+.digital-grid {
+  display: grid;
+  /* Default Desktop: 4 Columns */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
 }
 
-.digital-item{
-  text-align:center;
+.digital-item {
+  text-align: center;
+  padding: 15px;
 }
 
-.digital-item h3{
-  margin-top:15px;
-  font-size:18px;
-  color:#2d3e50;
+.digital-item h3 {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #2d3e50;
 }
 
-.digital-item p{
-  margin-top:10px;
-  font-size:14px;
-  line-height:1.6;
-  color:#555;
+.digital-item p {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
 }
 
+/* ================= RESPONSIVE ADJUSTMENTS ================= */
+
+/* Tablet View (Laptops/Tablets) */
+@media (max-width: 1024px) {
+  .digital-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2x2 Grid */
+    gap: 40px;
+  }
+  
+  .digital-header h2 {
+    font-size: 28px;
+  }
+}
+
+/* Mobile View (Phones) */
+@media (max-width: 600px) {
+  .digital-section {
+    padding: 40px 15px;
+  }
+
+  .digital-card {
+    padding: 30px 20px;
+    /* Soften the shadow for mobile to prevent "dirty" look */
+    box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
+  }
+
+  .digital-grid {
+    grid-template-columns: 1fr; /* Stacked 1 column */
+    gap: 30px;
+  }
+
+  .digital-header h2 {
+    font-size: 24px;
+  }
+
+  .digital-header p {
+    font-size: 15px;
+  }
+
+  .digital-item {
+    padding: 0;
+  }
+}
 /* ================= L&D SECTION ================= */
 
-.ld-section{
-  padding:100px 20px;
+.ld-section {
+  padding: 80px 20px;
+  background-color: #f8f9fb; /* Subtle background difference to separate sections */
 }
 
-.ld-container{
-  max-width:1100px;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:80px;
-  flex-wrap:wrap;
+.ld-container {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px; /* Reduced gap for better tablet fit */
 }
 
-.ld-image{
-  flex:1;
-  display:flex;
-  justify-content:center;
+.ld-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  min-width: 300px; /* Prevents image from shrinking too small */
 }
 
-.ld-image img{
-  width:100%;
-  max-width:420px;
-  border-radius:60% 40% 50% 50% / 50% 60% 40% 50%;
-  box-shadow:
-  12px 12px 24px #c5c6cc,
-  -12px -12px 24px #ffffff;
+.ld-image img {
+  width: 100%;
+  max-width: 420px;
+  /* Distinctive organic shape from your original CSS */
+  border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
+  /* Sharper, more refined Neumorphic shadow */
+  box-shadow: 
+    8px 8px 20px #d1d9e6, 
+    -8px -8px 20px #ffffff;
+  transition: transform 0.5s ease;
 }
 
-.ld-content{
-  flex:1;
-  max-width:520px;
+.ld-image img:hover {
+  transform: scale(1.02) rotate(2deg); /* Subtle interaction */
 }
 
-.ld-content h2{
-  font-size:32px;
-  color:#2d3e50;
-  margin-bottom:20px;
+.ld-content {
+  flex: 1;
+  min-width: 300px; /* Ensures text has room before stacking */
 }
 
-.ld-content p{
-  font-size:15px;
-  line-height:1.8;
-  color:#555;
-  margin-bottom:18px;
+.ld-content h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #2d3e50;
+  margin-bottom: 20px;
+  line-height: 1.2;
 }
 
-.ld-sign{
-  font-family:cursive;
-  font-size:22px;
-  color:#444;
+.ld-content p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.ld-sign {
+  font-family: 'Brush Script MT', cursive;
+  font-size: 24px;
+  color: #333;
+  margin-top: 10px;
+}
+
+/* ================= RESPONSIVE ADJUSTMENTS ================= */
+
+/* Tablet View */
+@media (max-width: 992px) {
+  .ld-container {
+    gap: 40px;
+  }
+
+  .ld-content h2 {
+    font-size: 28px;
+  }
+}
+
+/* Mobile View (Stacking Layout) */
+@media (max-width: 768px) {
+  .ld-container {
+    flex-direction: column; /* Stacks image on top, text below */
+    text-align: center;
+  }
+
+  .ld-image {
+    order: 1; /* Keeps image at top */
+    margin-bottom: 30px;
+  }
+
+  .ld-content {
+    order: 2;
+    max-width: 100%;
+  }
+
+  .ld-image img {
+    max-width: 320px; /* Smaller image for mobile screens */
+  }
+
+  .ld-content h2 {
+    font-size: 24px;
+  }
+
+  .ld-content p {
+    font-size: 15px;
+  }
 }
 
 /* ================= FUTURE READY MODULES SECTION ================= */
@@ -295,134 +498,220 @@ body {
   color:#2f3b4a;
   margin:8px 0;
 }
-
 /* ================= LEARNING CARDS SECTION ================= */
 
-.learning-cards{
-  padding:100px 20px;
+.learning-cards {
+  padding: 80px 20px;
+  background-color: #f0f2f5;
 }
 
-.cards-container{
-  max-width:1100px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:40px;
+.cards-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  /* 3 Columns for Desktop */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px 30px; /* Larger top gap to accommodate the overlapping icons */
 }
 
-.learning-card{
-  background:#e6e7ee;
-  padding:40px 30px 30px;
-  border-radius:12px;
-  position:relative;
-  text-align:left;
+.learning-card {
+  background: #f0f2f5;
+  padding: 60px 25px 30px; /* Increased top padding for the icon space */
+  border-radius: 16px;
+  position: relative;
+  text-align: center; /* Centered text looks better with centered icons */
+  transition: transform 0.3s ease;
 
-  box-shadow:
-  8px 8px 18px #c5c6cc,
-  -8px -8px 18px #ffffff;
+  /* Smoother Neumorphic Shadow */
+  box-shadow: 
+    9px 9px 16px #d1d9e6, 
+    -9px -9px 16px #ffffff;
 }
 
-.card-image{
-  position:absolute;
-  top:-40px;
-  left:50%;
-  transform:translateX(-50%);
-  width:90px;
-  height:90px;
-  border-radius:50%;
-  background:#e6e7ee;
-  padding:6px;
-
-  box-shadow:
-  6px 6px 12px #c5c6cc,
-  -6px -6px 12px #ffffff;
+.learning-card:hover {
+  transform: translateY(-5px);
 }
 
-.card-image img{
-  width:100%;
-  height:100%;
-  border-radius:50%;
-  object-fit:cover;
+.card-image {
+  position: absolute;
+  top: -45px; /* Half of the image height */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #f0f2f5;
+  padding: 8px;
+
+  box-shadow: 
+    6px 6px 12px #d1d9e6, 
+    -6px -6px 12px #ffffff;
 }
 
-.learning-card h3{
-  margin-top:60px;
-  font-size:18px;
-  color:#2d3e50;
-  margin-bottom:10px;
+.card-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
-.learning-card p{
-  font-size:14px;
-  line-height:1.6;
-  color:#555;
-  margin-bottom:20px;
+.learning-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #2d3e50;
+  margin-bottom: 12px;
 }
 
-.learn-btn{
-  padding:8px 16px;
-  border:none;
-  border-radius:8px;
-  background:#e6e7ee;
-  cursor:pointer;
-  font-size:13px;
-
-  box-shadow:
-  4px 4px 8px #c5c6cc,
-  -4px -4px 8px #ffffff;
+.learning-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 25px;
 }
 
-.learn-btn:hover{
-  box-shadow:
-  inset 4px 4px 8px #c5c6cc,
-  inset -4px -4px 8px #ffffff;
+.learn-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #f0f2f5;
+  color: #2d3e50;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+
+  box-shadow: 
+    4px 4px 8px #d1d9e6, 
+    -4px -4px 8px #ffffff;
 }
 
+.learn-btn:hover {
+  /* Pressed Inset Effect */
+  box-shadow: 
+    inset 4px 4px 8px #d1d9e6, 
+    inset -4px -4px 8px #ffffff;
+  color: #2f80ed;
+}
+
+/* ================= RESPONSIVE ADJUSTMENTS ================= */
+
+/* Tablet View */
+@media (max-width: 992px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 Columns */
+    gap: 80px 30px;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 650px) {
+  .learning-cards {
+    padding: 60px 20px;
+  }
+
+  .cards-container {
+    grid-template-columns: 1fr; /* Stacked 1 Column */
+    gap: 80px 0;
+  }
+
+  .learning-card {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
 /* ================= TRAINING SECTION ================= */
 
-.training-section{
-  padding:100px 20px;
+.training-section {
+  padding: 80px 20px;
+  background-color: #f0f2f5;
 }
 
-.training-container{
-  max-width:1100px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:40px;
+.training-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  /* Desktop: 3 Columns */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
 }
 
-.training-card{
-  background:#e6e7ee;
-  padding:20px 25px 30px;
-  border-radius:10px;
+.training-card {
+  background: #f0f2f5;
+  padding: 20px;
+  border-radius: 12px; /* Sharper edges per your design preference */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-  box-shadow:
-  8px 8px 18px #c5c6cc,
-  -8px -8px 18px #ffffff;
+  /* Crisp Neumorphic Shadow */
+  box-shadow: 
+    8px 8px 16px #d1d9e6, 
+    -8px -8px 16px #ffffff;
 }
 
-.training-card img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
-  border-radius:8px;
-  margin-bottom:20px;
+.training-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    12px 12px 20px #c5ccd8, 
+    -12px -12px 20px #ffffff;
 }
 
-.training-card h3{
-  font-size:18px;
-  color:#2d3e50;
-  margin-bottom:10px;
+.training-card img {
+  width: 100%;
+  height: 200px; /* Slightly taller for better image display */
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  /* Thin border to separate image from card background */
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-.training-card p{
-  font-size:14px;
-  line-height:1.6;
-  color:#555;
-  margin-bottom:20px;
+.training-card h3 {
+  font-size: 19px;
+  font-weight: 600;
+  color: #2d3e50;
+  margin-bottom: 12px;
 }
 
+.training-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* ================= RESPONSIVE ADJUSTMENTS ================= */
+
+/* Tablet View (Laptops/Small Screens) */
+@media (max-width: 1024px) {
+  .training-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 Columns */
+    gap: 25px;
+  }
+}
+
+/* Mobile View (Phones) */
+@media (max-width: 650px) {
+  .training-section {
+    padding: 50px 15px;
+  }
+
+  .training-container {
+    grid-template-columns: 1fr; /* Stacked 1 Column */
+    gap: 40px;
+  }
+
+  .training-card {
+    max-width: 450px;
+    margin: 0 auto; /* Centering the card on mobile */
+  }
+
+  .training-card img {
+    height: 220px; /* More height on mobile for visibility */
+  }
+
+  .training-card h3 {
+    font-size: 18px;
+  }
+}
 /* ================= CONTACT SECTION ================= */
 
 .contact-section{
